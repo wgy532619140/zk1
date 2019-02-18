@@ -4,7 +4,6 @@ var uglify = require("gulp-uglify"); //压缩js
 var server = require("gulp-webserver"); //起服
 var babel = require("gulp-babel") //es5-es6
 var clean = require("gulp-clean-css")
-var autoprefixer = require("gulp-autoprefixer")
 var fs = require("fs");
 var path = require("path");
 var url = require("url")
@@ -14,9 +13,6 @@ var url = require("url")
 gulp.task('sass', function() {
     return gulp.src(['./src/scss/*.scss', '!./src/scss/_mixin.scss', '!./src/scss/common.scss'])
         .pipe(sass())
-        .pipe(autoprefixer({
-            browsers: 'List 2 versions'
-        }))
         .pipe(clean())
         .pipe(gulp.dest('./src/css/'))
 })
